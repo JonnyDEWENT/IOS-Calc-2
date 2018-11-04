@@ -9,7 +9,25 @@
 import UIKit
 
 
-class ViewController: UIViewController, SettingsViewControllerDelegate {
+class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate{
+    
+    func selectEntry(entry: Conversion) {
+        self.fromUnits.text = entry.fromUnits
+        self.toUnits.text = entry.toUnits
+        
+        self.textFrom.text = "\(entry.fromVal)"
+        self.textTo.text = "\(entry.toVal)"
+    }
+    //, UITableViewDelegate, UITableViewDataSource {
+    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+    var historyDelegate:HistoryTableViewControllerDelegate?
     
     @IBOutlet weak var fromLabel: UILabel!
     
@@ -17,6 +35,13 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var textFrom: DecimalMinusTextField!
 
     @IBOutlet weak var textTo: DecimalMinusTextField!
+    
+    var entries : [Conversion] = [
+        Conversion(fromVal: 1, toVal: 1760, mode: "Distance", fromUnits: "Miles", toUnits:
+            "Yards", timestamp: Date.distantPast),
+        Conversion(fromVal: 1, toVal: 4, mode: "Volume", fromUnits: "Gallons", toUnits:
+            "Quarts", timestamp: Date.distantFuture)]
+    
     
     var calc:Calculations = Calculations()
     
@@ -43,6 +68,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+//        if let history = self.entries {
+//
+//        }
+//    }
 // Clears out text from textTo and sets active textfield
     @IBAction func fromField(_ sender: UITextField) {
         textTo.text = ""
@@ -75,13 +105,35 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     // Calls model function calculate when calculates
     @IBAction func calculate(_ sender: UIButton) {
+        
+      
+        
+        
         if activeTextField == textFrom{
             textTo.text = calc.calculate(from:calc.currentFrom,to:calc.currentTo,value:textFrom.text!)
         }
         else{
             textFrom.text = calc.calculate(from:calc.currentTo,to:calc.currentFrom,value:textTo.text!)
         }
+        
+        sendToHistory()
     }
+    
+    func sendToHistory() {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        let date = Date()
+        guard let from = textFrom.text, let to = textTo.text else {
+            return
+        }
+        
+        let conversion = Conversion(fromVal:(from as NSString).doubleValue, toVal:(to as NSString).doubleValue,mode: self.mode!, fromUnits: calc.currentFrom, toUnits: calc.currentTo, timestamp: date)
+        
+        entries.append(conversion)
+    }
+    
     
     // calls model mode change function when mode button hit
     @IBAction func modeChange(_ sender: Any) {
@@ -98,9 +150,15 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if let dest = segue.destination as? SettingsViewController {
             dest.mode = self.mode
-          dest.toUnits = self.toLabel.text
+            dest.toUnits = self.toLabel.text
             dest.fromUnits = self.fromLabel.text
             dest.delegate = self
+        }
+        
+        if segue.identifier == "historySegue" {
+            if let dest = segue.destination as? HistoryTableViewController {
+                dest.entries = self.entries
+            }
         }
     }
     
@@ -116,9 +174,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     }
     
     
-    @IBAction func settingsPressed(_ sender: UIButton) {
-
-    }
+    
     
     
     

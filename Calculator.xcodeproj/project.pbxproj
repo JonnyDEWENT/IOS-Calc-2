@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		6325BE0F215E9ED100279E60 /* NavigationBarTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325BE0E215E9ED100279E60 /* NavigationBarTheme.swift */; };
 		6325BE11215E9F1C00279E60 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325BE10215E9F1C00279E60 /* TextFieldTheme.swift */; };
+		635CA2AA2189C71900CAD3E0 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635CA2A92189C71900CAD3E0 /* Conversion.swift */; };
+		636743EB218F455900739E42 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636743EA218F455900739E42 /* HistoryTableViewCell.swift */; };
 		63B7779A21628A390093A8BA /* ButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7779921628A390093A8BA /* ButtonTheme.swift */; };
 		63B7779C21628B6E0093A8BA /* LabelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7779B21628B6E0093A8BA /* LabelTheme.swift */; };
+		63DCF96A218C7D2400FA3F1E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DCF969218C7D2400FA3F1E /* HistoryTableViewController.swift */; };
 		63F4E984215452E300FFDF34 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4E983215452E300FFDF34 /* SettingsViewController.swift */; };
 		63F4F01D215015D800AA7D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4F01C215015D800AA7D6F /* AppDelegate.swift */; };
 		63F4F01F215015D800AA7D6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4F01E215015D800AA7D6F /* ViewController.swift */; };
@@ -45,8 +48,11 @@
 /* Begin PBXFileReference section */
 		6325BE0E215E9ED100279E60 /* NavigationBarTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTheme.swift; sourceTree = "<group>"; };
 		6325BE10215E9F1C00279E60 /* TextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTheme.swift; sourceTree = "<group>"; };
+		635CA2A92189C71900CAD3E0 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		636743EA218F455900739E42 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		63B7779921628A390093A8BA /* ButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTheme.swift; sourceTree = "<group>"; };
 		63B7779B21628B6E0093A8BA /* LabelTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTheme.swift; sourceTree = "<group>"; };
+		63DCF969218C7D2400FA3F1E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		63F4E983215452E300FFDF34 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		63F4F019215015D800AA7D6F /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F4F01C215015D800AA7D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 				6325BE10215E9F1C00279E60 /* TextFieldTheme.swift */,
 				63B7779921628A390093A8BA /* ButtonTheme.swift */,
 				63B7779B21628B6E0093A8BA /* LabelTheme.swift */,
+				635CA2A92189C71900CAD3E0 /* Conversion.swift */,
+				63DCF969218C7D2400FA3F1E /* HistoryTableViewController.swift */,
+				636743EA218F455900739E42 /* HistoryTableViewCell.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 			files = (
 				6325BE11215E9F1C00279E60 /* TextFieldTheme.swift in Sources */,
 				63F4F04F2152BBC100AA7D6F /* Volume.swift in Sources */,
+				636743EB218F455900739E42 /* HistoryTableViewCell.swift in Sources */,
 				63F4F0512152BD7700AA7D6F /* Calculations.swift in Sources */,
 				63B7779C21628B6E0093A8BA /* LabelTheme.swift in Sources */,
 				63F4E984215452E300FFDF34 /* SettingsViewController.swift in Sources */,
@@ -292,8 +302,10 @@
 				63B7779A21628A390093A8BA /* ButtonTheme.swift in Sources */,
 				63F4F04D2152B89F00AA7D6F /* Distance.swift in Sources */,
 				63F4F04B2150401B00AA7D6F /* DecimalMinusTextField.swift in Sources */,
+				635CA2AA2189C71900CAD3E0 /* Conversion.swift in Sources */,
 				63F4F01F215015D800AA7D6F /* ViewController.swift in Sources */,
 				63F4F01D215015D800AA7D6F /* AppDelegate.swift in Sources */,
+				63DCF96A218C7D2400FA3F1E /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

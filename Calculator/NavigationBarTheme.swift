@@ -12,6 +12,8 @@ class NavigationBarTheme: UINavigationBar {
     
     override func awakeFromNib() {
         self.backgroundColor = BACKGROUND_COLOR
+        self.barTintColor = BACKGROUND_COLOR
+        self.tintColor = FOREGROUND_COLOR
     }
     
 }

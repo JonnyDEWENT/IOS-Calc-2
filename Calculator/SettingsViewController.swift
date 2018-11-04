@@ -74,6 +74,14 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if let d = self.delegate{
+            d.showSelection(fromUnit:self.fromLabel.text!, toUnit:self.toLabel.text!)
+        }
+//        self.dismiss(animated: true, completion:nil)
+         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     // Data picker displayed when to label tapped
     @IBAction func toTapped(_ sender: UITapGestureRecognizer) {
         activeLabel = toLabel
@@ -91,18 +99,7 @@ class SettingsViewController: UIViewController {
         self.picker.isHidden = false
     }
     
-    // Updates units on main screen and exits settings view
-    @IBAction func savePressed(_ sender: Any) {
-        if let d = self.delegate{
-            d.showSelection(fromUnit:self.fromLabel.text!, toUnit:self.toLabel.text!)
-        }
-        self.dismiss(animated: true, completion:nil)
-    }
-    
-    // Exits settings view
-    @IBAction func cancelPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion:nil)
-    }
+
     
     // Hides picker when screen is tapped
     @IBAction func tappedOut(_ sender: UITapGestureRecognizer) {
